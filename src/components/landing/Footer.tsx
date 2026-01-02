@@ -1,13 +1,20 @@
 import { MapPin, Mail, Phone, Instagram, Facebook } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <footer className="border-t pt-16 pb-8 px-6 bg-card border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16"
+        >
           <div className="col-span-1 md:col-span-2">
             <a href="#" className="text-lg font-semibold tracking-widest uppercase block mb-6">
-              Matos.
+              IKEE<span className="italic text-neutral-500">a</span>
             </a>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
               Premium home remodeling services for Dallas, Texas. Built on integrity, transparency, and architectural quality.
@@ -44,7 +51,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5" />
-                hello@matoshome.com
+                hello@ikeea.com
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5" />
@@ -52,19 +59,29 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
 
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-border">
           <p className="text-xs text-muted-foreground">
-            © 2024 Matos Home Improvements LLC. All rights reserved.
+            © 2024 IKEE<span className="italic">a</span> Home Improvements LLC. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="transition-colors text-muted-foreground hover:text-foreground">
+            <motion.a 
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              href="#" 
+              className="transition-colors text-muted-foreground hover:text-foreground"
+            >
               <Instagram className="w-4 h-4" />
-            </a>
-            <a href="#" className="transition-colors text-muted-foreground hover:text-foreground">
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              href="#" 
+              className="transition-colors text-muted-foreground hover:text-foreground"
+            >
               <Facebook className="w-4 h-4" />
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>
