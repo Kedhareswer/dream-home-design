@@ -1,17 +1,23 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Email submitted:", email);
   };
 
   return (
     <section id="contact" className="py-32 px-6 text-center bg-background">
-      <div className="max-w-3xl mx-auto">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="max-w-3xl mx-auto"
+      >
         <h2 className="text-4xl md:text-5xl font-medium tracking-tighter mb-6 text-foreground">
           Ready to build something lasting?
         </h2>
@@ -20,7 +26,12 @@ const Contact = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 text-left">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             <label htmlFor="email" className="sr-only">
               Email
             </label>
@@ -32,18 +43,30 @@ const Contact = () => {
               placeholder="Your email address"
               className="w-full border rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground bg-card border-border"
             />
-          </div>
-          <button
+          </motion.div>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             type="submit"
             className="w-full font-medium rounded-md px-4 py-3 text-sm transition-colors flex justify-center items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Request Consultation
-          </button>
-          <p className="text-xs text-center mt-4 text-muted-foreground">
+          </motion.button>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-xs text-center mt-4 text-muted-foreground"
+          >
             No spam. No pressure. Just professional advice.
-          </p>
+          </motion.p>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 };
